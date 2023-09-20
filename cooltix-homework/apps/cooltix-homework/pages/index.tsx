@@ -1,13 +1,40 @@
-import styled from 'styled-components';
+import { useQuery, gql } from '@apollo/client';
+import Link from 'next/link';
 
-const StyledPage = styled.div`
-  .page {
+const GET_ALL_MEMBERS = gql`
+  {
+    allMembers {
+      id
+      firstName
+      lastName
+      email
+      address {
+        country
+        state
+        postalCode
+        city
+        addressLine
+      }
+      phoneNumber
+      profilePictureUrl
+    }
   }
 `;
 
 export function Index() {
+  const { loading, error, data } = useQuery(GET_ALL_MEMBERS);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
   return (
-    <h1>hello</h1>
+    <div>
+      {data.allMembers.map((member) => (
+        <Link key={member.id} href={`/member/${member.id}`}>
+          <p>{member.firstName}</p>
+        </Link>
+      ))}
+    </div>
   );
 }
 

@@ -1,5 +1,7 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
+import { ApolloProvider } from '@apollo/client';
+import apolloClient from '../lib/apolloClient';
 import './styles.css';
 
 function CustomApp({ Component, pageProps }: AppProps) {
@@ -9,7 +11,9 @@ function CustomApp({ Component, pageProps }: AppProps) {
         <title>Welcome to cooltix-homework!</title>
       </Head>
       <main className="app">
-        <Component {...pageProps} />
+        <ApolloProvider client={apolloClient}>
+          <Component {...pageProps} />
+        </ApolloProvider>
       </main>
     </>
   );
