@@ -2,7 +2,9 @@
   "name": "@cooltix-homework/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "build": "nx build cooltix-homework"
+  },
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.8.4",

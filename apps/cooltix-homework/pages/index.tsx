@@ -15,7 +15,7 @@ export function Index() {
 
   return (
     <div>
-      {data.allMembers.map((member) => (
+      {data.allMembers.map((member: any) => (
         <Link key={member.id} href={`/member/${member.id}`}>
           <p>{member.firstName}</p>
         </Link>

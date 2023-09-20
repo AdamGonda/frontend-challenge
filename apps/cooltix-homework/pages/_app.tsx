@@ -9,7 +9,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Welcome to cooltix-homework!</title>
+        <title>Cooltix Homework</title>
       </Head>
       <main className="app">
         <ApolloProvider client={apolloClient}>
