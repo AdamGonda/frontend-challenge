@@ -2,6 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import { useQuery } from '@apollo/client';
 import GET_MEMBER_BY_ID from '../../graphql/queries/getMemberById.graphql';
+import toast from 'react-hot-toast';
 
 function Member() {
   const router = useRouter();
@@ -13,7 +14,10 @@ function Member() {
   });
 
   if (loading || !data) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+  if (error) {
+    toast.error('Something went wrong');
+    return <p>Something went wrong</p>;
+  }
   if (!data.member) return <div>No member data available</div>;
 
   const memberDetails = data.member;
@@ -25,7 +29,6 @@ function Member() {
       </h1>
       <p>Email: {memberDetails.email}</p>
       <p>Phone: {memberDetails.phoneNumber}</p>
-      {/* Display other member details as needed */}
     </div>
   );
   return <p>hello</p>;
