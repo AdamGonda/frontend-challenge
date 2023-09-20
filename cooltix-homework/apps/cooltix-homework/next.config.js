@@ -12,6 +12,15 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.(graphql|gql)$/,
+      exclude: /node_modules/,
+      loader: 'graphql-tag/loader',
+    });
+
+    return config;
+  },
 
   compiler: {
     // For other options, see https://styled-components.com/docs/tooling#babel-plugin

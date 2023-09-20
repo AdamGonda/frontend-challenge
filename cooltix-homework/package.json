@@ -8,6 +8,7 @@
     "@apollo/client": "^3.8.4",
     "@nx/next": "16.8.1",
     "graphql": "^16.8.1",
+    "graphql-tag": "^2.12.6",
     "next": "13.4.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -16,6 +17,9 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.0",
+    "@graphql-codegen/typescript": "^4.0.1",
+    "@graphql-codegen/typescript-operations": "^4.0.1",
     "@nx/eslint-plugin": "16.8.1",
     "@nx/jest": "16.8.1",
     "@nx/js": "16.8.1",

@@ -1,0 +1,17 @@
+query GetAllMembers {
+  allMembers {
+    id
+    firstName
+    lastName
+    email
+    address {
+      country
+      state
+      postalCode
+      city
+      addressLine
+    }
+    phoneNumber
+    profilePictureUrl
+  }
+}

@@ -1,0 +1,8 @@
+overwrite: true
+schema: "https://frontend-challenge.dev.cooltix.com/"
+documents: "./graphql/queries/**/*.graphql"
+generates:
+  graphql/types.ts:
+    plugins:
+      - typescript
+      - typescript-operations

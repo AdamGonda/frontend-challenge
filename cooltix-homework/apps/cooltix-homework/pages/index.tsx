@@ -1,25 +1,6 @@
-import { useQuery, gql } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import Link from 'next/link';
-
-const GET_ALL_MEMBERS = gql`
-  {
-    allMembers {
-      id
-      firstName
-      lastName
-      email
-      address {
-        country
-        state
-        postalCode
-        city
-        addressLine
-      }
-      phoneNumber
-      profilePictureUrl
-    }
-  }
-`;
+import GET_ALL_MEMBERS from '../graphql/queries/getAllMembers.graphql';
 
 export function Index() {
   const { loading, error, data } = useQuery(GET_ALL_MEMBERS);
