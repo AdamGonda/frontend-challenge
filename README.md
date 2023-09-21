@@ -32,7 +32,7 @@ A logo megegyezik az ebben a repoban használttal.
 - rendezés vezetéknév vagy keresztnév alapján ✅
 - általad összerakott **Member details** oldal, amely egy tag részletes adatait jeleníti meg ✅
 - navigáció, mely egy tag kártyájára kattintva a részletes oldalra visz ✅
-- töltési nézet, amég az adatok be nem töltődnek az API-ról
+- töltési nézet, amég az adatok be nem töltődnek az API-ról ✅
 
 ### API
 
