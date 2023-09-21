@@ -1,6 +1,18 @@
 import { ApolloClient, InMemoryCache, makeVar } from '@apollo/client';
 
-export const queryParamsVar = makeVar({
+export interface QueryParams {
+  name: string;
+  states: string;
+  sortBy: 'firstName' | 'lastName';
+}
+
+export const queryParamsVar = makeVar<QueryParams>({
+  states: '',
+  sortBy: 'firstName',
+  name: '',
+});
+
+export const filteredAndSortedMembersVar = makeVar({
   states: [],
   sortBy: '',
   name: '',
@@ -12,15 +24,20 @@ const apolloClient = new ApolloClient({
     typePolicies: {
       Query: {
         fields: {
-          filters: {
+          queryParams: {
             read() {
               return queryParamsVar();
-            }
-          }
-        }
-      }
-    }
-  })
+            },
+          },
+          filteredMembers: {
+            read() {
+              return filteredAndSortedMembersVar();
+            },
+          },
+        },
+      },
+    },
+  }),
 });
 
 export default apolloClient;

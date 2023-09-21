@@ -1,15 +1,13 @@
 import { useEffect } from 'react';
-import router, { useRouter } from 'next/router';
-import { queryParamsVar } from '../lib/apolloClient';
+import router from 'next/router';
+import { type QueryParams, queryParamsVar } from '../lib/apolloClient';
+import useRouter from '../lib/useRouterHook';
 
 const QueryParamsManager = () => {
-  const router = useRouter();  
+  const router = useRouter();
 
   useEffect(() => {
-    const states = router.query.states?.split(',') || [];
-    const sortBy = router.query.sortBy || '';
-    const name = router.query.name || '';
-    queryParamsVar({ states, sortBy, name });
+    syncQuery();
   }, [router.query]);
 
   return null;
@@ -17,24 +15,34 @@ const QueryParamsManager = () => {
 
 export default QueryParamsManager;
 
-export function toggleStateQuery(filters, state) {
-  const newQuery = {};
+function syncQuery() {
+  const states = (router.query.states || '') as string;
+  const sortBy = (router.query.sortBy || '') as QueryParams['sortBy'];
+  const name = (router.query.name || '') as string;
+
+  queryParamsVar({ states, sortBy, name });
+}
+
+export function setStateQuery(queryParams: QueryParams, state: string) {
+  const newQuery: Partial<QueryParams> = {};
   let newStates = [];
 
-  if (filters.states.includes(state)) {
-    newStates = filters.states.filter((s) => s !== state);
+  if (queryParams.states.includes(state)) {
+    newStates = queryParams.states.split(',').filter((s) => s !== state);
   } else {
-    newStates = [...filters.states, state];
+    newStates = [...queryParams.states.split(',').filter((s) => s !== ''), state];
   }
 
   if (newStates.length) {
     newQuery.states = newStates.join(',');
   }
-  if (filters.sortBy) {
-    newQuery.sortBy = filters.sortBy;
+
+  if (queryParams.sortBy) {
+    newQuery.sortBy = queryParams.sortBy;
   }
-  if (filters.name) {
-    newQuery.name = filters.name;
+
+  if (queryParams.name) {
+    newQuery.name = queryParams.name;
   }
 
   router.push({
@@ -43,17 +51,20 @@ export function toggleStateQuery(filters, state) {
   });
 }
 
-export function setSortByQuery(filters, sortBy = 'firstName') {
-  const newQuery = {};
+export function setSortByQuery(
+  queryParams: QueryParams,
+  sortBy: QueryParams['sortBy'] = 'firstName'
+) {
+  const newQuery: Partial<QueryParams> = {};
 
-  if (filters.states.length) {
-    newQuery.states = filters.states.join(',');
+  if (queryParams.states !== '') {
+    newQuery.states = queryParams.states;
   }
 
   newQuery.sortBy = sortBy;
-  
-  if (filters.name) {
-    newQuery.name = filters.name;
+
+  if (queryParams.name) {
+    newQuery.name = queryParams.name;
   }
 
   router.push({
@@ -62,22 +73,23 @@ export function setSortByQuery(filters, sortBy = 'firstName') {
   });
 }
 
-export function setNameQuery(filters, name) {
-  const newQuery = {};
+export function setNameQuery(queryParams: QueryParams, name: string) {
+  const newQuery: Partial<QueryParams> = {};
 
-  if (filters.states.length) {
-    newQuery.states = filters.states.join(',');
+  if (queryParams.states !== '') {
+    newQuery.states = queryParams.states;
   }
 
-  if (filters.sortBy) {
-    newQuery.sortBy = filters.sortBy;
+  if (queryParams.sortBy) {
+    newQuery.sortBy = queryParams.sortBy;
   }
 
-  newQuery.name = name;
+  if (name) {
+    newQuery.name = name;
+  }
 
   router.push({
     pathname: '/',
     query: newQuery,
   });
 }
-

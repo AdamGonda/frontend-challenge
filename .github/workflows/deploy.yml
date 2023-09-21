@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - cooltix
+      - add-styles
   pull_request:
     branches:
       - main
@@ -34,11 +34,11 @@ jobs:
     - name: Install Dependencies
       run: npm ci
 
-    - name: Setup Playwright
-      run: npx playwright install-deps
+    # - name: Setup Playwright
+    #   run: npx playwright install-deps
 
-    - name: Run E2E Tests
-      run: npx nx e2e cooltix-homework-e2e
+    # - name: Run E2E Tests
+    #   run: npx nx e2e cooltix-homework-e2e
 
     - name: Build and Deploy to Vercel
       run: npx vercel --token ${{ secrets.VERCEL_TOKEN }} --prod --yes

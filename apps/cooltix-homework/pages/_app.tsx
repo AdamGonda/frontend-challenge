@@ -2,22 +2,23 @@ import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { ApolloProvider } from '@apollo/client';
 import apolloClient from '../lib/apolloClient';
-import './styles.css';
 import { Toaster } from 'react-hot-toast';
 import QueryParamsManager from '../components/QueryParamsManager';
+import GlobalStyles from '../styles/GlobalStyles';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
+      <GlobalStyles />
       <Head>
-        <title>Cooltix Homework</title>
+        <title>Members only 😎</title>
       </Head>
-      <main className="app">
-        <ApolloProvider client={apolloClient}>
-          <Toaster/>
-          <QueryParamsManager/>
-          <Component {...pageProps} />
-        </ApolloProvider>
+      <main>
+          <ApolloProvider client={apolloClient}>
+            <Toaster />
+            <QueryParamsManager />
+            <Component {...pageProps} />
+          </ApolloProvider>
       </main>
     </>
   );
