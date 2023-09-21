@@ -4,6 +4,7 @@ import { ApolloProvider } from '@apollo/client';
 import apolloClient from '../lib/apolloClient';
 import './styles.css';
 import { Toaster } from 'react-hot-toast';
+import QueryParamsManager from '../components/QueryParamsManager';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
@@ -14,6 +15,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
       <main className="app">
         <ApolloProvider client={apolloClient}>
           <Toaster/>
+          <QueryParamsManager/>
           <Component {...pageProps} />
         </ApolloProvider>
       </main>
