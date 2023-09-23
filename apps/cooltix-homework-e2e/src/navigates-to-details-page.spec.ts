@@ -5,11 +5,17 @@ test('Listing members', async ({ page }) => {
 
   await page.waitForSelector('[data-test-id="list-item-skeleton"]', {
     state: 'detached',
-    timeout: 2000,
+    timeout: 1000,
   });
 
   const members = page.locator('[data-test-id="list-item"]');
-  const count = await members.count();
-  expect(count).toBeGreaterThan(0);
+  await members.first().click();
+
+  await page.waitForSelector('[data-test-id="details-page"]', {
+    state: 'visible',
+    timeout: 1000,
+  });
+
+  expect(page.url()).toContain('member');
 });
 

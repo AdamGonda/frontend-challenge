@@ -8,20 +8,29 @@ interface SortByProps {
   total: number;
 }
 
-function SortBy({ result, total}: SortByProps) {
+function SortBy({ result, total }: SortByProps) {
   const queryParams = useReactiveVar(queryParamsVar);
 
   return (
     <Wrap>
-      <p>Showing {result} of {total} items</p>
+      <p>
+        Showing {result} of {total} items
+      </p>
       <div>
         <span>Order</span>
         <select
           value={queryParams.sortBy}
-          onChange={(e) => setSortByQuery(queryParams, e.target.value as QueryParams['sortBy'])}
+          data-test-id="sort-by-select"
+          onChange={(e) =>
+            setSortByQuery(queryParams, e.target.value as QueryParams['sortBy'])
+          }
         >
-          <option value="firstName">First Name</option>
-          <option value="lastName">Last Name</option>
+          <option data-test-id="sort-by-option" value="firstName">
+            First Name
+          </option>
+          <option data-test-id="sort-by-option" value="lastName">
+            Last Name
+          </option>
         </select>
       </div>
     </Wrap>
@@ -35,7 +44,7 @@ const Wrap = styled.div`
   align-items: center;
   justify-content: space-between;
   border-radius: 4px;
-  border: 1px solid #E5E5E5;
+  border: 1px solid #e5e5e5;
   padding: 16px;
 
   select {

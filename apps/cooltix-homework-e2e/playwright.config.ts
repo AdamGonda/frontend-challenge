@@ -30,4 +30,11 @@ export default defineConfig({
     reuseExistingServer: !process.env.CI,
     cwd: workspaceRoot,
   },
+  projects: [
+    {
+      name: 'chrome',
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      use: { ...require('@playwright/test').devices['Desktop Chrome'] },
+    },
+  ],
 });

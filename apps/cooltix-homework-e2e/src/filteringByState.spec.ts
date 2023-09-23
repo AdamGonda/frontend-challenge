@@ -11,7 +11,7 @@ test.describe('Filtering by state', () => {
     await checkbox.click();
 
     // eslint-disable-next-line playwright/no-wait-for-timeout
-    await page.waitForTimeout(200);
+    await page.waitForTimeout(500);
     
     expect(page.url()).toContain('Arizona');
   });
@@ -24,7 +24,7 @@ test.describe('Filtering by state', () => {
     await checkbox.click();
 
     // eslint-disable-next-line playwright/no-wait-for-timeout
-    await page.waitForTimeout(200);
+    await page.waitForTimeout(500);
     
     expect(page.url()).toContain('Arizona');
     expect(page.url()).toContain('Alaska');
@@ -36,7 +36,7 @@ test.describe('Filtering by state', () => {
     const members = page.locator('[data-test-id="list-item"]')
 
     // eslint-disable-next-line playwright/no-wait-for-timeout
-    await page.waitForTimeout(200);
+    await page.waitForTimeout(500);
 
     const count = await members.count();
     expect(count).toBeGreaterThan(0);

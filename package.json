@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve cooltix-homework",
-    "build": "nx build cooltix-homework"
+    "build": "nx build cooltix-homework",
+    "e2e": "nx run cooltix-homework-e2e:e2e"
   },
   "private": true,
   "dependencies": {
