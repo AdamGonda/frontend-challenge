@@ -70,6 +70,7 @@ function Filters() {
           <input
             name="state"
             type="checkbox"
+            data-test-id={'filter-option=' + state}
             checked={queryParams.states.includes(state)}
             onChange={() => setStateQuery(queryParams, state)}
           />

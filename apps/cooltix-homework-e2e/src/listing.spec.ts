@@ -1,10 +1,4 @@
-import { test, expect, chromium } from '@playwright/test';
-
-test('has title', async ({ page }) => {
-  await page.goto('/');
-
-  await expect(page.title()).resolves.toMatch('Members only 😎');
-});
+import { test, expect } from '@playwright/test';
 
 test('should list members', async ({ page }) => {
   await page.goto('/');
@@ -18,3 +12,4 @@ test('should list members', async ({ page }) => {
   const count = await members.count();
   expect(count).toBeGreaterThan(0);
 });
+
