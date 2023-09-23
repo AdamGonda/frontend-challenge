@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('should list members', async ({ page }) => {
+test('Search by name', async ({ page }) => {
   await page.goto('/');
 
   const searchBar = page.locator('[data-test-id="search-bar"]');

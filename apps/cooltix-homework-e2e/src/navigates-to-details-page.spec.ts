@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('Listing members', async ({ page }) => {
+test('Navigation to details page', async ({ page }) => {
   await page.goto('/');
 
   await page.waitForSelector('[data-test-id="list-item-skeleton"]', {
