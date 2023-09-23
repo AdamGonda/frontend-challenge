@@ -8,7 +8,7 @@ function MemberListSkeleton() {
   return (
     <>
       {Array.from({ length: PLACEHOLDERS }).map((_, index) => (
-        <ListItem key={index}>
+        <ListItem key={index} data-test-id="list-item-skeleton">
           <div className="circle" />
           <div className="large-line" />
           <div className="medium-line" />
