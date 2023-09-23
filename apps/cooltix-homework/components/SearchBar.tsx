@@ -15,6 +15,7 @@ function SearchBar() {
         type="text"
         placeholder="Search"
         value={queryParams.name}
+        data-test-id="search-bar"
         onChange={(e) =>
           setNameQuery(
             queryParams,

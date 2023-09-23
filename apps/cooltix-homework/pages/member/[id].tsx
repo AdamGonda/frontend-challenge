@@ -33,7 +33,7 @@ function Member() {
         <u>Back to list</u>
       </Link>
 
-      <Wrap>
+      <Wrap data-test-id="details-page">
         {loading ? (
           <MemberDetailsSkeleton />
         ) : (

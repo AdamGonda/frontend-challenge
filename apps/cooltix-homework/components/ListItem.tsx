@@ -10,7 +10,7 @@ interface Props {
 
 function ListItem({ member }: Props) {
   return (
-    <Link key={member.id} href={`/member/${member.id}`}>
+    <Link key={member.id} href={`/member/${member.id}`} data-test-id="list-item">
       <Wrap>
         <Image
           priority
