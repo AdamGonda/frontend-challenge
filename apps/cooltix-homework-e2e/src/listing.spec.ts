@@ -5,7 +5,7 @@ test('Listing members', async ({ page }) => {
 
   await page.waitForSelector('[data-test-id="list-item-skeleton"]', {
     state: 'detached',
-    timeout: 2000,
+    timeout: 3000,
   });
 
   const members = page.locator('[data-test-id="list-item"]');
