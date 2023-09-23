@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - add-e2e-tests
+      - cooltix
   pull_request:
     branches:
       - main
