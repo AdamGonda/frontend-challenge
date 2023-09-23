@@ -8,6 +8,7 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
 import MemberDetailsSkeleton from '../../components/MemberDetailsSkeleton';
+import { fadeInAnimation } from 'apps/cooltix-homework/styles/sharedStyles';
 
 function Member() {
   const router = useRouter();
@@ -76,9 +77,11 @@ const Wrap = styled.div`
   padding: 80px 16px;
   line-height: 24px;
   margin-top: 40px;
+  ${fadeInAnimation}
 
   img {
     border-radius: 50%;
+    ${fadeInAnimation}
   }
 
   #full-name {

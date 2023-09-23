@@ -2,6 +2,7 @@ import MainLayout from '../layout/MainLayout';
 import styled from 'styled-components';
 import MemberList from '../components/MemberList';
 import Filters from '../components/Filters';
+import { fadeInAnimation } from '../styles/sharedStyles';
 
 export function Index() {
   return (
@@ -24,6 +25,8 @@ export function Index() {
 export default Index;
 
 const Wrap = styled.div`
+  ${fadeInAnimation}
+
   h1 {
     font-size: 32px;
     font-weight: bold;
