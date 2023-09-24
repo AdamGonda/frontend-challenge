@@ -1,0 +1,17 @@
+query GetMemberById($id: ID!) {
+  member(id: $id) {
+    id
+    firstName
+    lastName
+    email
+    address {
+      country
+      state
+      postalCode
+      city
+      addressLine
+    }
+    phoneNumber
+    profilePictureUrl
+  }
+}

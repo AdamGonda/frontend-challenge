@@ -1,0 +1,22 @@
+{
+  "name": "cooltix-homework-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/cooltix-homework-e2e/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/playwright:playwright",
+      "outputs": ["{workspaceRoot}/dist/.playwright/apps/cooltix-homework-e2e"],
+      "options": {
+        "config": "apps/cooltix-homework-e2e/playwright.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/cooltix-homework-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "implicitDependencies": ["cooltix-homework"]
+}
