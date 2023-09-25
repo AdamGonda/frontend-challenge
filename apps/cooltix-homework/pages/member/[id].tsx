@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
 import MemberDetailsSkeleton from '../../components/MemberDetailsSkeleton';
-import { fadeInAnimation } from 'apps/cooltix-homework/styles/sharedStyles';
+import { fadeInAnimation } from '../../styles/sharedStyles';
 
 function Member() {
   const router = useRouter();
