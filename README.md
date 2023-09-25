@@ -6,6 +6,8 @@
 
 # Cooltix - Frontend Kihívás
 
+## [Live app](https://cooltix-homework.vercel.app/)
+
 # Implemented features
 
 - Listing of members ✅
