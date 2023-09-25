@@ -27,8 +27,8 @@ export function MemberList() {
         {loading ? (
           <MemberListSkeleton />
         ) : (
-          result.map((member: Member) => (
-            <ListItem key={member.id} member={member} />
+          result.map((member: Member, idx: number) => (
+            <ListItem key={member.id} member={member} animOffset={idx} />
           ))
         )}
       </div>

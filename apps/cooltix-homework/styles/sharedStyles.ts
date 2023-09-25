@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import { css, keyframes } from 'styled-components';
 
 export const shineAnimation = css`
   @keyframes shine {
@@ -15,15 +15,15 @@ export const shineAnimation = css`
   animation: shine 1s infinite linear;
 `;
 
-export const fadeInAnimation = css`
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+export const fadeInKeyframes = keyframes`
+  from {
+    opacity: 0;
   }
+  to {
+    opacity: 1;
+  }
+`;
 
-  animation: fadeIn 0.3s ease-in;
+export const fadeInAnimation = css`
+  animation: ${fadeInKeyframes} 0.3s ease-in;
 `;

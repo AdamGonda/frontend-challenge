@@ -1,17 +1,23 @@
 import Link from 'next/link';
 import React from 'react';
 import { Member } from '../graphql/types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Image from 'next/image';
+import { fadeInKeyframes } from '../styles/sharedStyles';
 
 interface Props {
   member: Member;
+  animOffset: number;
 }
 
-function ListItem({ member }: Props) {
+function ListItem({ member, animOffset }: Props) {
   return (
-    <Link key={member.id} href={`/member/${member.id}`} data-test-id="list-item">
-      <Wrap>
+    <Link
+      key={member.id}
+      href={`/member/${member.id}`}
+      data-test-id="list-item"
+    >
+      <Wrap animOffset={animOffset}>
         <Image
           priority
           placeholder="blur"
@@ -34,7 +40,7 @@ function ListItem({ member }: Props) {
   );
 }
 
-const Wrap = styled.div`
+const Wrap = styled.div<{ animOffset: number }>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,6 +49,11 @@ const Wrap = styled.div`
   padding: 40px 16px;
   cursor: pointer;
   line-height: 24px;
+  opacity: 0;
+
+  ${({ animOffset }) => css`
+    animation: ${fadeInKeyframes} 0.3s ease-in-out ${animOffset * 0.1}s forwards;
+  `}
 
   img {
     border-radius: 50%;
