@@ -3,13 +3,12 @@ import Head from 'next/head';
 import { ApolloProvider } from '@apollo/client';
 import apolloClient from '../lib/apolloClient';
 import { Toaster } from 'react-hot-toast';
+import '../styles/globals.css';
 import QueryParamsManager from '../components/QueryParamsManager';
-import GlobalStyles from '../styles/GlobalStyles';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <GlobalStyles />
       <Head>
         <title>Members only 😎</title>
       </Head>
