@@ -101,6 +101,11 @@ const Wrap = styled.div`
     display: block;
     cursor: pointer;
     font-family: Quicksand;
+    user-select: none;
+  }
+
+  input {
+    cursor: pointer;
   }
 `;
 
