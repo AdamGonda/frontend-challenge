@@ -6,6 +6,8 @@
 
 # Cooltix - Frontend Kihívás
 
+## [Live app](https://cooltix-homework.vercel.app/)
+
 # Implemented features
 
 - Listing of members ✅
@@ -33,7 +35,7 @@
 - Add more animations
 - Add page transitions
 - Add more accessibility features
-- Add styled error states
+- Add error states
 - Add empty states
 - ect...
 
