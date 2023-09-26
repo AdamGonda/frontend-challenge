@@ -67,14 +67,19 @@ function Filters() {
     <Wrap>
       {displayedStates.map((state: string) => (
         <div key={state}>
-          <input
-            name="state"
-            type="checkbox"
+          <label
+            htmlFor="state"
             data-test-id={'filter-option=' + state}
-            checked={queryParams.states.includes(state)}
-            onChange={() => setStateQuery(queryParams, state)}
-          />
-          <label htmlFor="state">{state}</label>
+            onClick={() => setStateQuery(queryParams, state)}
+          >
+            <input
+              name="state"
+              type="checkbox"
+              checked={queryParams.states.includes(state)}
+              readOnly
+            />
+            {state}
+          </label>
         </div>
       ))}
       {!showAll && <button onClick={() => setShowAll(true)}>More</button>}
@@ -90,7 +95,12 @@ const Wrap = styled.div`
     text-decoration: underline;
     cursor: pointer;
     font-family: Quicksand;
+  }
 
+  label {
+    display: block;
+    cursor: pointer;
+    font-family: Quicksand;
   }
 `;
 
